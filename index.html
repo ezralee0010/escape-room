@@ -1,62 +1,13 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8">
-    <title>Untitled</title>
-  </head>
-  
-  <style>
-    body {
-      cursor: url('alice.png') 16 16, auto;
-    }
-  </style>
-  
-  <body>
-    <a href="rabbit-hole.html">Jump Down</a>
-  </body>
-</html>
+<link rel="stylesheet" href="styles.css">
+<body>
+  <a href="rabbit-hole.html">Jump Down</a>
 
-<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
-<script>
-  /* global nn */
-  const style = document.createElement('style')
-  style.innerHTML = `
-    @keyframes floatNotes {
-      0% {
-        transform: translate(0px, 0px)
-      }
-      50% {
-        transform: translate(0px, -10px)
-      }
-      100% {
-        transform: translate(0px, 0px)
-      }
-    }
-  `
-  
-  document.head.appendChild(style)
-  
-  const emojis = '𝄞 𝅝 𝅗𝅥 𝅘𝅥 𝅘𝅥𝅮 𝅘𝅥𝅯 𝅘𝅥𝅰 𝅘𝅥𝅱 𝅘𝅥𝅲 𝅝 𝅗𝅥 𝅘𝅥 𝅝 𝅗𝅥 𝅘𝅥 𝅝 𝅗𝅥 𝅘𝅥'
-  
-  function draw () {
-    if (!nn.mouseDown) return
-      const x = nn.mouseX
-      const y = nn.mouseY
-      const emoji = nn.random(emojis)
-      
-      nn.create('a-box')
-        .content(emoji)
-        .css('user-select', 'none')
-        .css('color', 'black')
-        .css('font-size', '30px')
-        .position(x,y)
-        .css('animation', 'floatNotes 3s ease-in-out infinite')
-        .addTo('body')
-  }
-    
-    
-  nn.on('mousemove', draw)
-  
-   
-  
-</script>
+  <img src="rabbit-jump.gif" alt="pixelated rabbit jumping">
+</body>
+
+<div id="nav">
+  <a href="index.html">home</a>
+  <a href="rabbit-hole.html">rabbit hole</a>
+  <a href="flower.html">flower</a>
+  <a href="echo.html">echo</a>
+</div>

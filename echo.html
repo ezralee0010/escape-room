@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="styles.css">
+
+<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
+
+<script>
+  /* global nn */
+
+  let canvas
+  let words = []
+
+  class Word {
+    constructor(x, y, dx, dy, text) {
+      this.x = x
+      this.y = y
+      this.dx = dx
+      this.dy = dy
+      this.text = text
+    }
+
+    update() {
+      this.x += this.dx
+      this.y += this.dy
+
+      if (this.x > nn.width || this.x < 0) {
+        this.dx = -this.dx
+      }
+
+      if (this.y > nn.height || this.y < 0) {
+        this.dy = -this.dy
+      }
+    }
+
+    draw() {
+      canvas.ctx.fillStyle = nn.randomColor()
+      canvas.ctx.font = '40px serif'
+
+      canvas.ctx.fillText(this.text, this.x, this.y)
+    }
+  }
+
+  function setup () {
+    nn.get('body').css('margin', 0)
+    nn.get('body').css('background-color', 'white')
+
+    canvas = nn.create('canvas')
+      .position(0, 0)
+      .resize(nn.width, nn.height)
+      .addTo('body')
+
+    const vocab = [
+      'fall',
+      'sink',
+      'rabbit',
+      'hole',
+      'echo',
+      'moth',
+      'worm',
+      'dream',
+      'below',
+      'static',
+      'crawl'
+    ]
+
+    for (let i = 0; i < 100; i++) {
+
+      const word = nn.random(vocab)
+
+      words.push(new Word(
+        nn.random(0, nn.width),
+        nn.random(0, nn.height),
+        nn.random(-2, 2),
+        nn.random(-2, 2),
+        word
+      ))
+    }
+  }
+
+  function draw () {
+    setTimeout(draw, 1000 / 60)
+
+    //canvas.ctx.clearRect(0, 0, nn.width, nn.height)
+
+    words.forEach(w => {
+      w.update()
+      w.draw()
+    })
+  }
+
+  nn.on('load', setup)
+  nn.on('load', draw)
+
+  nn.on('resize', () => {
+    canvas.resize(nn.width, nn.height)
+  })
+</script>
+
+<div id="nav">
+  <a href="index.html">home</a>
+  <a href="rabbit-hole.html">rabbit hole</a>
+  <a href="flower.html">flower</a>
+  <a href="echo.html">echo</a>
+</div>
