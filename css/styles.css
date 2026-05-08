@@ -1,5 +1,5 @@
 body {
-  cursor: url('alice.png'), auto;
+  cursor: url('../images/alice.png'), auto;
 
   /*background-image: url('hills.jpg');
   background-size: cover;
