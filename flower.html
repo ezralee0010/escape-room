@@ -1,5 +1,27 @@
 <link rel="stylesheet" href="css/styles.css">
 
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: skyblue;
+  }
+
+  img {
+    width: 250px;
+    height: auto;
+    user-select: none;
+  }
+</style>
+
+<body>
+  <img src="./images/daisy_transparent.gif" alt="daisy">
+  <img src="./images/tulip.gif" alt="tulip">
+  <img src="./images/2flowers.gif" alt="2 flowers">
+</body>
+
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
 <script>
   /* global nn */
@@ -39,7 +61,6 @@
   }
     
   nn.on('mousemove', draw)
-  
 </script>
 
 <div id="nav">
