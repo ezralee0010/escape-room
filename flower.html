@@ -45,7 +45,6 @@
 <script>
   /* global nn */
 
-  // FLOATING ANIMATION
   const style = document.createElement('style')
 
   style.innerHTML = `
@@ -72,28 +71,17 @@
 
   // SOUND FILES
   const sounds = [
-    'a3.mp3',
-    'b5.mp3',
-    'c4.mp3',
-    'd5.mp3',
-    'e5.mp3',
-    'f3.mp3',
-    'g5.mp3'
+    './sounds/a4.mp3', './sounds/a#4.mp3', './sounds/b4.mp3', './sounds/c5.mp3', './sounds/c4.mp3', './sounds/c#4.mp3', './sounds/d4.mp3', './sounds/d#4.mp3', './sounds/e4.mp3', './sounds/f4.mp3', './sounds/f#4.mp3', './sounds/g4.mp3', './sounds/g#4.mp3'
   ]
 
-  // PLAY RANDOM SOUND
   function playRandomSound() {
-
     const randomSound = nn.random(sounds)
-
     const audio = new Audio(randomSound)
-
     audio.volume = 0.3
 
     audio.play()
   }
 
-  // DRAW MUSIC NOTES
   function draw () {
 
     if (!nn.mouseDown) return
@@ -103,10 +91,8 @@
 
     const emoji = nn.random(emojis)
 
-    // PLAY SOUND
     playRandomSound()
 
-    // CREATE NOTE
     nn.create('a-box')
       .content(emoji)
       .css('user-select', 'none')
