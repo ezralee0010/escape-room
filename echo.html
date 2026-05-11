@@ -12,7 +12,7 @@
 </style>
 
 <body>
-  <a href="rabbit-hole.html">
+  <a href="index.html">
     <img id="door" src="./images/door.png" alt="door">
   </a>
 </body>
@@ -63,10 +63,10 @@
       .addTo('body')
 
     const vocab = [
-      'boredom', 'fatigue', 'relax', 'anxious'
+      'OFF WITH THEIR HEADS', 'I’m late, I’m late I’m late!', 'I shall never get out', 'Who are you?'
     ]
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 10; i++) {
       const word = nn.random(vocab)
 
       words.push(new Word(
@@ -80,7 +80,7 @@
   }
 
   function draw () {
-    setTimeout(draw, 1000 / 5)
+    setTimeout(draw, 1000 / 30)
 
     words.forEach(w => {
       w.update()
@@ -98,7 +98,7 @@
 
 <div id="nav">
   <a href="index.html">Home</a>
-  <a href="echo.html">Boar-dom</a>
   <a href="rabbit-hole.html">Rabbit Hole</a>
   <a href="flower.html">Earworm</a>
+  <a href="echo.html">Cat-astrophizing</a>
 </div>
