@@ -7,6 +7,7 @@
     justify-content: center;
     gap: 20px;
     background: skyblue;
+    overflow: hidden;
   }
 
   img {
@@ -14,58 +15,107 @@
     height: auto;
     user-select: none;
   }
+
+  #nav {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  a {
+    margin-right: 10px;
+  }
 </style>
 
 <body>
   <img src="./images/daisy_transparent.gif" alt="daisy">
   <img src="./images/tulip.gif" alt="tulip">
   <img src="./images/2flowers.gif" alt="2 flowers">
+
+  <div id="nav">
+    <a href="index.html">home</a>
+    <a href="rabbit-hole.html">Rabbit Hole</a>
+    <a href="flower.html">Earworm</a>
+    <a href="echo.html">Boar-dom</a>
+  </div>
 </body>
 
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
+
 <script>
   /* global nn */
+
+  // FLOATING ANIMATION
   const style = document.createElement('style')
+
   style.innerHTML = `
     @keyframes floatNotes {
       0% {
-        transform: translate(0px, 0px)
+        transform: translate(0px, 0px);
       }
+
       50% {
-        transform: translate(0px, -10px)
+        transform: translate(0px, -10px);
       }
+
       100% {
-        transform: translate(0px, 0px)
+        transform: translate(0px, 0px);
       }
     }
   `
-  
+
   document.head.appendChild(style)
-  
-  const emojis = '𝄞 𝅝 𝅗𝅥 𝅘𝅥 𝅘𝅥𝅮 𝅘𝅥𝅯 𝅘𝅥𝅰 𝅘𝅥𝅱 𝅘𝅥𝅲 𝅝 𝅗𝅥 𝅘𝅥 𝅝 𝅗𝅥 𝅘𝅥 𝅝 𝅗𝅥 𝅘𝅥'
-  
-  function draw () {
-    if (!nn.mouseDown) return
-      const x = nn.mouseX
-      const y = nn.mouseY
-      const emoji = nn.random(emojis)
-      
-      nn.create('a-box')
-        .content(emoji)
-        .css('user-select', 'none')
-        .css('color', 'black')
-        .css('font-size', '30px')
-        .position(x,y)
-        .css('animation', 'floatNotes 3s ease-in-out infinite')
-        .addTo('body')
+
+  // MUSICAL SYMBOLS
+  const emojis =
+    '𝄞 𝅝 𝅗𝅥 𝅘𝅥 𝅘𝅥𝅮 𝅘𝅥𝅯 𝅘𝅥𝅰 𝅘𝅥𝅱 𝅘𝅥𝅲 𝅝 𝅗𝅥 𝅘𝅥 𝅝 𝅗𝅥 𝅘𝅥'
+
+  // SOUND FILES
+  const sounds = [
+    'a3.mp3',
+    'b5.mp3',
+    'c4.mp3',
+    'd5.mp3',
+    'e5.mp3',
+    'f3.mp3',
+    'g5.mp3'
+  ]
+
+  // PLAY RANDOM SOUND
+  function playRandomSound() {
+
+    const randomSound = nn.random(sounds)
+
+    const audio = new Audio(randomSound)
+
+    audio.volume = 0.3
+
+    audio.play()
   }
-    
+
+  // DRAW MUSIC NOTES
+  function draw () {
+
+    if (!nn.mouseDown) return
+
+    const x = nn.mouseX
+    const y = nn.mouseY
+
+    const emoji = nn.random(emojis)
+
+    // PLAY SOUND
+    playRandomSound()
+
+    // CREATE NOTE
+    nn.create('a-box')
+      .content(emoji)
+      .css('user-select', 'none')
+      .css('color', 'black')
+      .css('font-size', '30px')
+      .position(x, y)
+      .css('animation', 'floatNotes 3s ease-in-out infinite')
+      .addTo('body')
+  }
+
   nn.on('mousemove', draw)
 </script>
-
-<div id="nav">
-  <a href="index.html">home</a>
-  <a href="rabbit-hole.html">Rabbit Hole</a>
-  <a href="flower.html">Earworm</a>
-  <a href="echo.html">Boar-dom</a>
-</div>
