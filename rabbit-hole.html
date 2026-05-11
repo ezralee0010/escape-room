@@ -7,41 +7,56 @@
 </body>
 
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
+
 <script>
   /* global nn */
-  
+
+  const vocab = [
+    '▀', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█', '▉', '▊', '▋', '▌', '▍', '▎', '▏', '▐', '░', '▒', '▓', '▔', '▕', '▖', '▘', '▗', '▘', '▙', '▚', '▛', '▜', '▝', '▞', '▟', '▀', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█', '▉', '▊', '▋', '▌', '▍', '▎', '▏', '▐', '░', '▒', '▓', '▔', '▕', '▖', '▘', '▗', '▘', '▙', '▚', '▛', '▜', '▝', '▞', '▟', 'I', 'am', 'falling', 'falling', 'fall', 'drop', 'slump', 'below', 'dip', 'sinking', 'descend', 'down', 'down', 'where', 'am', 'I', 'where', 'escape', 'escape', 'escape', 'escape', 'I', 'I', 'I', 'I', '↯', '↶', '↷', '↡', '↧', '⇊', '↴', '⇓', '⇘', '⇙', '⇟', '⇣', '⇩', '⇲', '☇', '☈', '➘', '➴', '➷', '⤈', '⤋', '⤓', '⤥', '⤦', '⤩', '⤵', '⤸', '⤹', '⤺', '⥥', '⬂', '⬃', '⮛', '⮟', '⮶', '⮷', '┄', '┅', '┅', '┅', '┆', '┇', '┄', '┅', '┅', '┅', '┆', '┇', '╭', '╭', '╮', '╯', '╰']
+
   function setup () {
+
     const fps = 1000 / 60
     setTimeout(setup, fps)
-    
-    const ran = nn.random('▀	▁	▂	▃	▄	▅	▆	▇	█	▉	▊	▋	▌	▍	▎	▏▐	░	▒	▓	▔	▕	▖	▗	▘	▙	▚	▛	▜	▝	▞	▟ I am falling falling fall drop slump below dip sinking descend down down where am I where escape escape escape escape escape I I I I ↯ ↶ ↷ ↡ ↧ ⇊ ↴ ⇓ ⇘ ⇙ ⇟ ⇣ ⇩ ⇲ ☇ ☈ ➘ ➴ ➷ ⤈ ⤋ ⤓ ⤥ ⤦ ⤩ ⤵ ⤸ ⤹ ⤺ ⥥ ⬂ ⬃ ⮛ ⮟ ⮶ ⮷ ▀	▁	▂	▃	▄	▅	▆	▇	█	▉	▊	▋	▌	▍	▎	▏▐	░	▒	▓	▔	▕	▖	▗	▘	▙	▚	▛	▜	▝	▞	▟ ┄	┅	┆	┇	┈	┉	┊	┋ ╭╭	╮	╯╰')
-    // ┘┐┌└┤┴┬├─│┼  ┄	┅	┆	┇	┈	┉	┊	┋
+    const ran = nn.random(vocab)
+
     const r = nn.random(255)
     const g = nn.random(255)
     const b = nn.random(255)
+
     const c = nn.rgb(r, g, b)
-    
-    const t = nn.random(60,90)
-    
-    nn.create('a-box')
-      .content(ran)
-      .css('color', c)
+
+    const t = nn.random(60, 90)
+
+    let el
+
+    if (ran === 'escape') {
+      el = nn.create('a')
+        .content('escape')
+        .set('href', 'flower.html')
+
+    } else {
+      el = nn.create('a-box')
+        .content(ran)
+        .css('color', c)
+    }
+
+    el
       .css('word-wrap', 'anywhere')
       .css('line-height', '40px')
       .css('font-size', t)
-      //.css('user-select', 'none')
       .addTo('body')
-    
+
     const y = nn.get('body').scrollHeight
-    window.scrollTo(0,y) 
-  
+
+    window.scrollTo(0, y)
   }
-  
+
   nn.on('load', () => {
     nn.get('body').css('background-color', 'black')
     setup()
   })
-  
+
 </script>
 
 <div id="nav">
