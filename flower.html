@@ -12,38 +12,21 @@
     position: absolute; user-select: none; pointer-events: none;
   }
   
-  #daisy-first {
-    width: 300px; left: 5%; top: 30%;
-  }
+  #daisy-first { width: 300px; left: 5%; top: 30% }
   
-  #daisy-second {
-    width: 500px; left: 75%; top: 50%;
-  }
+  #daisy-second { width: 500px; left: 75%; top: 50% }
 
-  #tulip {
-    width: 300px; left: 60%; top: 40%;
-  }
+  #tulip { width: 300px; left: 60%; top: 40% }
 
-  #two-flowers { 
-    width: 300px; left: 30%; top: 35%;
-  }
+  #two-flowers { width: 300px; left: 30%; top: 35% }
   
-  #two-silly-flowers {
-    width: 300px; left: 80%; top: 30%;
-  }
+  #two-silly-flowers { width: 300px; left: 80%; top: 30% }
   
-  #singing-flower {
-    width: 300px; left: 40%; top: 70%;
-  }
+  #singing-flower { width: 300px; left: 40%; top: 70% }
   
-  #peony {
-    width: 400px; left: 10%; top: 50%;
-  }
+  #peony { width: 400px; left: 10%; top: 50% }
   
-  #door {
-    width: 100px; left: 45%; top: 65%; pointer-events: auto; z-index: 1;
-  }
-
+  #door { width: 100px; left: 45%; top: 65%; pointer-events: auto; z-index: 1 }
 </style>
 
 <body>
@@ -68,8 +51,6 @@
   <img id="peony" class="all-images" src="./images/peony.gif" alt="flower singing">
 
   <img id="singing-flower" class="all-images" src="./images/singing-flower-new.gif" alt="singing flower">
-  
-
   
 </body>
 
@@ -98,11 +79,9 @@
 
   document.head.appendChild(style)
 
-  // MUSICAL SYMBOLS
   const emojis =
     '𝄞 𝅝 𝅗𝅥 𝅘𝅥 𝅘𝅥𝅮 𝅘𝅥𝅯 𝅘𝅥𝅰 𝅘𝅥𝅱 𝅘𝅥𝅲 𝅝 𝅗𝅥 𝅘𝅥 𝅝 𝅗𝅥 𝅘𝅥'
 
-  // SOUND FILES
   const sounds = [
     './sounds/a4.mp3', './sounds/a#4.mp3', './sounds/b4.mp3', './sounds/c5.mp3', './sounds/c4.mp3', './sounds/c#4.mp3', './sounds/d4.mp3', './sounds/d#4.mp3', './sounds/e4.mp3', './sounds/f4.mp3', './sounds/f#4.mp3', './sounds/g4.mp3', './sounds/g#4.mp3'
   ]
@@ -116,7 +95,6 @@
   }
 
   function draw () {
-
     if (!nn.mouseDown) return
 
     const x = nn.mouseX
