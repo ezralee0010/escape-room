@@ -2,36 +2,70 @@
 
 <style>
   body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    background: skyblue;
+    background: url('./images/field.jpg');
     overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    position: relative;
   }
 
-  img {
-    width: 250px;
-    height: auto;
+  .all-images {
+    position: absolute;
     user-select: none;
+    pointer-events: none;
+  }
+  
+  #daisy {
+    width: 500px; left: -50px; top: 500px;
   }
 
-  #nav {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
+  #tulip {
+    width: 300px; left: 500px; top: 350px;
   }
 
-  a {
-    margin-right: 10px;
+  #flowers { 
+    width: 300px; left: 200px; top: 300px;
   }
+  
+  #door {
+    width: 100px; left: 300px; top: 600px; pointer-events: auto; z-index: 1;
+  }
+
 </style>
 
 <body>
-  <img src="./images/daisy_transparent.gif" alt="daisy">
-  <img src="./images/tulip.gif" alt="tulip">
-  <img src="./images/2flowers.gif" alt="2 flowers">
+  <a href="echo.html">
+    <img 
+      id="door"
+      class="all-images"
+      src="./images/door.png" 
+      alt="door"
+    >
+  </a>
+  
+  <img
+    id="daisy"
+    class="all-images"
+    src="./images/daisy_transparent.gif"
+    alt="daisy"
+  >
 
+  <img
+    id="tulip"
+    class="all-images"
+    src="./images/tulip.gif"
+    alt="tulip"
+  >
+
+  <img
+    id="flowers"
+    class="all-images"
+    src="./images/2flowers.gif"
+    alt="2 flowers"
+  >
+  
   <div id="nav">
     <a href="index.html">home</a>
     <a href="rabbit-hole.html">Rabbit Hole</a>
