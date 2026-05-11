@@ -2,6 +2,17 @@ body {
   cursor: url('../images/alice.png'), auto;
 }
 
+h1 {
+  color: white; font-size: 60px;
+}
+
+p {
+  display: inline;
+  background-color: white;
+  padding: 4px 8px;
+  line-height: 2;
+}
+
 #nav {
   position: fixed;
   bottom: 0; left: 0; width: 100%;
