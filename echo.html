@@ -2,6 +2,20 @@
 
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
 
+<style>
+  body {position: relative}
+  
+  #door {
+    position: absolute; width: 100px; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1;
+  }
+</style>
+
+<body>
+  <a href="index.html">
+    <img id="door" src="./images/door.png" alt="door">
+  </a>
+</body>
+
 <script>
   /* global nn */
 
@@ -48,21 +62,10 @@
       .addTo('body')
 
     const vocab = [
-      'fall',
-      'sink',
-      'rabbit',
-      'hole',
-      'echo',
-      'moth',
-      'worm',
-      'dream',
-      'below',
-      'static',
-      'crawl'
+      'boredom', 'fatigue', 'relax', 'anxious'
     ]
 
     for (let i = 0; i < 100; i++) {
-
       const word = nn.random(vocab)
 
       words.push(new Word(
@@ -76,9 +79,7 @@
   }
 
   function draw () {
-    setTimeout(draw, 1000 / 2)
-
-    //canvas.ctx.clearRect(0, 0, nn.width, nn.height)
+    setTimeout(draw, 1000 / 5)
 
     words.forEach(w => {
       w.update()
@@ -95,8 +96,8 @@
 </script>
 
 <div id="nav">
-  <a href="index.html">home</a>
-  <a href="rabbit-hole.html">rabbit hole</a>
-  <a href="flower.html">flower</a>
-  <a href="echo.html">echo</a>
+  <a href="index.html">Home</a>
+  <a href="rabbit-hole.html">Rabbit Hole</a>
+  <a href="flower.html">Earworm</a>
+  <a href="echo.html">Boar-dom</a>
 </div>
