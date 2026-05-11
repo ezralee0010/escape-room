@@ -1,7 +1,72 @@
 <link rel="stylesheet" href="css/styles.css">
+
+<style>
+  body {
+    position: relative;
+    background: url('./images/beginning.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  #door {
+    position: absolute;
+    width: 100px;
+    left: 65%;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+</style>
+
 <body>
-  <a href="rabbit-hole.html">Jump Down</a>
+  <a href="flower.html">
+    <img id="door" src="./images/door.png" alt="door">
+  </a>
+
+  <canvas id="canvas"></canvas>
 </body>
+
+<script>
+  const canvas = document.getElementById("canvas")
+  const ctx = canvas.getContext("2d")
+
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight
+
+  let cat = new Image()
+  cat.src = "images/cat.png"
+
+  function draw () {
+    requestAnimationFrame(draw)
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    const t = performance.now() * 0.001
+    const cx = canvas.width / 2
+    const cy = canvas.height / 2
+    const r = 220
+
+    const x = Math.sin(t) * r + cx
+    const y = Math.cos(t) * r + cy
+
+    const opacity = (Math.sin(t * 2) + 1) / 2
+
+    ctx.save()
+    ctx.globalAlpha = opacity
+
+    ctx.drawImage(cat, x + 200, y + 120, 90, 90)
+
+    ctx.restore()
+  }
+
+  draw()
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+  })
+</script>
 
 <div id="nav">
   <a href="index.html">Home</a>
