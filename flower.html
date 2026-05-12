@@ -8,32 +8,28 @@
     position: relative;
   }
 
-  .all-images { 
-    position: absolute; user-select: none; pointer-events: none;
-  }
+  .all-images { position: absolute; user-select: none; pointer-events: none }
   
   #daisy-first { width: 300px; left: 5%; top: 30% }
-  
   #daisy-second { width: 500px; left: 75%; top: 50% }
-
   #tulip { width: 300px; left: 60%; top: 40% }
-
   #two-flowers { width: 300px; left: 30%; top: 35% }
-  
   #two-silly-flowers { width: 300px; left: 80%; top: 30% }
-  
   #singing-flower { width: 300px; left: 40%; top: 70% }
-  
   #peony { width: 400px; left: 10%; top: 50% }
   
   #door { width: 100px; left: 45%; top: 65%; pointer-events: auto; z-index: 1 }
+  
+  @keyframes floatNotes {
+    0% { transform: translate(0px, 0px) }
+    50% { transform: translate(0px, -10px) }
+    100% {transform: translate(0px, 0px) }
+  }
 </style>
 
 <body>
-  <h1 style="color: black"> The Earworm </h1>
-  <p class="all-images">
-    Click and drag your mouse to make music.
-  </p>
+  <h1 style="color: black"> The 👂🪱 </h1>
+  <p class="all-images"> Click and drag your mouse to make music </p>
   <a href="echo.html">
     <img id="door" class="all-images" src="./images/door.png" alt="door">
   </a>
@@ -51,40 +47,15 @@
   <img id="peony" class="all-images" src="./images/peony.gif" alt="flower singing">
 
   <img id="singing-flower" class="all-images" src="./images/singing-flower-new.gif" alt="singing flower">
-  
 </body>
 
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
-
 <script>
   /* global nn */
 
-  const style = document.createElement('style')
+  const emojis = '𝄞 𝄢 𝅝 𝅗𝅥 ♩ ♪ ♫ ♬ ♭ ♮ ♯ 𝅗𝅥 ♩ ♪ ♫ ♬'
 
-  style.innerHTML = `
-    @keyframes floatNotes {
-      0% {
-        transform: translate(0px, 0px);
-      }
-
-      50% {
-        transform: translate(0px, -10px);
-      }
-
-      100% {
-        transform: translate(0px, 0px);
-      }
-    }
-  `
-
-  document.head.appendChild(style)
-
-  const emojis =
-    '𝄞 𝅝 𝅗𝅥 𝅘𝅥 𝅘𝅥𝅮 𝅘𝅥𝅯 𝅘𝅥𝅰 𝅘𝅥𝅱 𝅘𝅥𝅲 𝅝 𝅗𝅥 𝅘𝅥 𝅝 𝅗𝅥 𝅘𝅥'
-
-  const sounds = [
-    './sounds/a4.mp3', './sounds/a#4.mp3', './sounds/b4.mp3', './sounds/c5.mp3', './sounds/c4.mp3', './sounds/c#4.mp3', './sounds/d4.mp3', './sounds/d#4.mp3', './sounds/e4.mp3', './sounds/f4.mp3', './sounds/f#4.mp3', './sounds/g4.mp3', './sounds/g#4.mp3'
-  ]
+  const sounds = [ './sounds/a4.mp3', './sounds/a#4.mp3', './sounds/b4.mp3', './sounds/c5.mp3', './sounds/c4.mp3', './sounds/c#4.mp3', './sounds/d4.mp3', './sounds/d#4.mp3', './sounds/e4.mp3', './sounds/f4.mp3', './sounds/f#4.mp3', './sounds/g4.mp3', './sounds/g#4.mp3' ]
 
   function playRandomSound() {
     const randomSound = nn.random(sounds)
@@ -121,5 +92,5 @@
   <a href="index.html">Home</a>
   <a href="rabbit-hole.html">Rabbit Hole</a>
   <a href="flower.html">Earworm</a>
-  <a href="echo.html">Cat-astrophizing</a>
+  <a href="echo.html">(Cat)astrophizing</a>
 </div>

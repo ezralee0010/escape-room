@@ -3,7 +3,7 @@
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
 
 <style>
-  body {position: relative}
+  body { position: relative }
   
   #door {
     position: absolute; width: 100px; left: 50%; top: 50%; 
@@ -12,12 +12,13 @@
 </style>
 
 <body>
-  <h1 style="color: black"> The &gt;cat&lt;astrophizing </h1>
+  <h1 style="color: black"> The 🙀🚀-phizing </h1>
   <a href="index.html">
     <img id="door" src="./images/door.png" alt="door">
   </a>
 </body>
 
+<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
 <script>
   /* global nn */
 
@@ -36,8 +37,10 @@
     update() {
       this.x += this.dx
       this.y += this.dy
+      
+      const textWidth = canvas.ctx.measureText(this.text).width
 
-      if (this.x > nn.width || this.x < 0) {
+      if (this.x + textWidth > nn.width || this.x < 0) {
         this.dx = -this.dx
       }
 
@@ -67,11 +70,13 @@
       'OFF WITH THEIR HEADS', 'I’m late, I’m late I’m late!', 'I shall never get out', 'Who are you?'
     ]
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 20; i++) {
       const word = nn.random(vocab)
+      canvas.ctx.font = '40px serif'
+      const textWidth = canvas.ctx.measureText(word).width
 
       words.push(new Word(
-        nn.random(0, nn.width),
+        nn.random(0, nn.width - textWidth),
         nn.random(0, nn.height),
         nn.random(-2, 2),
         nn.random(-2, 2),
@@ -81,7 +86,7 @@
   }
 
   function draw () {
-    setTimeout(draw, 1000 / 30)
+    setTimeout(draw, 1000 / 60)
 
     words.forEach(w => {
       w.update()
@@ -101,5 +106,5 @@
   <a href="index.html">Home</a>
   <a href="rabbit-hole.html">Rabbit Hole</a>
   <a href="flower.html">Earworm</a>
-  <a href="echo.html">Cat-astrophizing</a>
+  <a href="echo.html">(Cat)astrophizing</a>
 </div>
