@@ -9,13 +9,13 @@ p {
 }
 
 #nav {
-  position: fixed; bottom: 0; left: 0; width: 100%;
-  display: flex; justify-content: center; gap: 20px;
-  padding: 15px; z-index: 1; user-select: none; background: black;
+  position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1;
+  display: flex; justify-content: space-between; gap: 20px; padding: 15px; 
+  user-select: none; background: black; box-sizing: border-box;
 }
 
 #nav a {
-  color: yellow;
+  color: skyblue;
   text-decoration: none;
   font-size: 20px;
 }
