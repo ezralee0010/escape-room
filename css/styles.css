@@ -3,27 +3,16 @@ body { cursor: url('../images/alice.png'), auto }
 h1 { color: white; font-size: 60px; user-select: none; position: relative; z-index: 2 }
 
 p {
-  display: inline;
-  background-color: white;
-  padding: 4px 8px;
-  line-height: 2;
+  display: inline; font-size: 15px; background-color: white; padding: 4px 8px; line-height: 2;
   
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
 
 #nav {
-  position: fixed;
-  bottom: 0; left: 0; width: 100%;
-
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-
-  padding: 15px;
-  z-index: 1;
-  user-select: none;
-  background: black;
+  position: fixed; bottom: 0; left: 0; width: 100%;
+  display: flex; justify-content: center; gap: 20px;
+  padding: 15px; z-index: 1; user-select: none; background: black;
 }
 
 #nav a {

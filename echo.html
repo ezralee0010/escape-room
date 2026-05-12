@@ -1,25 +1,17 @@
 <link rel="stylesheet" href="css/styles.css">
 
-<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
-
 <style>
   body { 
-    position: relative;
-    background: url('./images/lost.jpg');
+    background: url('./images/lost.jpg'); position: relative;
     overflow: hidden; background-repeat: no-repeat; background-size: cover; background-position: center;
   }
   
-  #door {
-    position: absolute; width: 100px; left: 50%; top: 50%; 
-    transform: translate(-50%, -50%); z-index: 1;
-  }
+  #door { position: absolute; width: 100px; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1 }
 </style>
 
 <body>
-  <h1 style="color: black"> The 🙀🚀-phizing </h1>
-  <a href="index.html">
-    <img id="door" src="./images/door.png" alt="door">
-  </a>
+  <h1> The 🙀🚀-phizing: jumping to the worst possible conclusions (in the mind)</h1>
+  <a href="index.html"> <img id="door" src="./images/door.png" alt="door"> </a>
 </body>
 
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
@@ -70,9 +62,7 @@
       .resize(nn.width, nn.height)
       .addTo('body')
 
-    const vocab = [
-      'OFF WITH THEIR HEADS', 'I’m late, I’m late I’m late!', 'I shall never get out', 'Who are you?'
-    ]
+    const vocab = ['OFF WITH THEIR HEADS', 'I’m late, I’m late I’m late!', 'I shall never get out', 'Who are you?']
 
     for (let i = 0; i < 20; i++) {
       const word = nn.random(vocab)
@@ -100,7 +90,6 @@
 
   nn.on('load', setup)
   nn.on('load', draw)
-
   nn.on('resize', () => {
     canvas.resize(nn.width, nn.height)
   })

@@ -2,10 +2,8 @@
 
 <style>
   body {
-    background: url('./images/test.png');
-    overflow: hidden; background-repeat: no-repeat; background-size: cover; background-position: center;
-    
-    position: relative;
+    background: url('./images/test.png'); position: relative;
+    overflow: hidden; background-repeat: no-repeat; background-size: cover; background-position: center; 
   }
 
   .all-images { position: absolute; user-select: none; pointer-events: none }
@@ -28,7 +26,7 @@
 </style>
 
 <body>
-  <h1 style="color: black"> The 👂🪱 </h1>
+  <h1> The 👂🪱: repeating a song or melody (in the mind)</h1>
   <p class="all-images"> Click and drag your mouse to make music </p>
   <a href="echo.html"> <img id="door" class="all-images" src="./images/door.png" alt="door"> </a>
     
@@ -51,7 +49,7 @@
 <script>
   /* global nn */
 
-  const emojis = '𝄞 𝄢 𝅝 𝅗𝅥 ♩ ♪ ♫ ♬ ♭ ♮ ♯ 𝅗𝅥 ♩ ♪ ♫ ♬'
+  const notes = '𝄞 𝄢 𝅝 𝅗𝅥 ♩ ♪ ♫ ♬ ♭ ♮ ♯ 𝅗𝅥 ♩ ♪ ♫ ♬'
 
   const sounds = [ './sounds/a4.mp3', './sounds/a#4.mp3', './sounds/b4.mp3', './sounds/c5.mp3', './sounds/c4.mp3', './sounds/c#4.mp3', './sounds/d4.mp3', './sounds/d#4.mp3', './sounds/e4.mp3', './sounds/f4.mp3', './sounds/f#4.mp3', './sounds/g4.mp3', './sounds/g#4.mp3' ]
 
@@ -69,15 +67,15 @@
     const x = nn.mouseX
     const y = nn.mouseY
 
-    const emoji = nn.random(emojis)
+    const note = nn.random(notes)
 
     playRandomSound()
 
     nn.create('a-box')
-      .content(emoji)
+      .content(note)
       .css('user-select', 'none')
-      .css('color', 'black')
-      .css('font-size', '30px')
+      .css('color', nn.randomColor())
+      .css('font-size', '50px')
       .position(x, y)
       .css('animation', 'floatNotes 3s ease-in-out infinite')
       .addTo('body')
