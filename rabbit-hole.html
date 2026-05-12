@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="css/styles.css">
 
+<style> body { background: black } </style>
+
 <body> <h1>The 🐇 🕳️: : falling deep into something (in the mind)</h1> </body>
 
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
@@ -21,20 +23,20 @@
     const c = nn.rgb(r, g, b)
     const t = nn.random(60, 90)
 
-    let el
+    let symbol
 
     if (ran === '🚪') {
-      el = nn.create('a')
+      symbol = nn.create('a')
         .content('🚪')
         .set('href', 'flower.html')
 
     } else {
-      el = nn.create('a-box')
+      symbol = nn.create('a-box')
         .content(ran)
         .css('color', c)
     }
 
-    el
+    symbol
       .css('word-wrap', 'anywhere')
       .css('line-height', '40px')
       .css('font-size', t)
@@ -44,10 +46,7 @@
     window.scrollTo(0, y)
   }
 
-  nn.on('load', () => {
-    nn.get('body').css('background-color', 'black')
-    setup()
-  })
+  nn.on('load', setup)
 </script>
 
 <div id="nav">

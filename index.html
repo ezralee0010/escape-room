@@ -8,12 +8,7 @@
   }
 
   #door {
-    position: absolute;
-    width: 100px;
-    left: 57%;
-    top: 57%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+    position: absolute; width: 100px; left: 53%; top: 54%; z-index: 1;
   }
 </style>
 
@@ -27,8 +22,7 @@
 
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
 <script>
-  let canvas
-  let cat
+  let canvas, cat
   
   function setup () {
     canvas = nn.create('canvas')
@@ -56,7 +50,7 @@
     const opacity = (Math.sin(t * 2) + 1) / 2
 
     canvas.globalAlpha = opacity
-    canvas.drawImage(cat, x + 70, y - 90, 90, 90)
+    canvas.drawImage(cat, x + 70, y - 10, 90, 90)
   }
 
   nn.on('load', setup)

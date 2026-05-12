@@ -2,7 +2,7 @@
 
 <style>
   body { 
-    background: url('./images/lost.jpg'); position: relative;
+    position: relative; background: url('./images/lost.jpg');
     overflow: hidden; background-repeat: no-repeat; background-size: cover; background-position: center;
   }
   
@@ -10,7 +10,7 @@
 </style>
 
 <body>
-  <h1 style="margin: 10px"> The 🙀🚀-phizing: jumping to the worst possible conclusions (in the mind)</h1>
+  <h1> The 🙀🚀-phizing: jumping to the worst possible conclusions (in the mind)</h1>
   <a href="index.html"> <img id="door" src="./images/door.png" alt="door"> </a>
 </body>
 
@@ -18,8 +18,7 @@
 <script>
   /* global nn */
 
-  let canvas
-  let sentences = []
+  let canvas, sentences = []
 
   class Sentence {
     constructor(x, y, dx, dy, text) {
@@ -54,8 +53,6 @@
   }
 
   function setup () {
-    nn.get('body').css('margin', 0)
-
     canvas = nn.create('canvas')
       .position(0, 0)
       .resize(nn.width, nn.height)

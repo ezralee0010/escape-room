@@ -1,12 +1,11 @@
-body { cursor: url('../images/alice.png'), auto }
+body { cursor: url('../images/alice.png'), auto; margin: 0 }
 
-h1 { color: white; font-size: 60px; user-select: none; position: relative; z-index: 2 }
+h1 { color: white; font-size: 60px; user-select: none; position: relative; z-index: 2; margin: 10px }
 
 p {
-  display: inline; font-size: 15px; background-color: white; padding: 4px 8px; line-height: 2;
+  display: inline; font-size: 15px; background-color: white; padding: 4px 8px; line-height: 2; margin: 10px;
   
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
 
 #nav {
