@@ -10,7 +10,7 @@
 </style>
 
 <body>
-  <h1> The 🙀🚀-phizing: jumping to the worst possible conclusions (in the mind)</h1>
+  <h1 style="margin: 10px"> The 🙀🚀-phizing: jumping to the worst possible conclusions (in the mind)</h1>
   <a href="index.html"> <img id="door" src="./images/door.png" alt="door"> </a>
 </body>
 
@@ -19,9 +19,9 @@
   /* global nn */
 
   let canvas
-  let words = []
+  let sentences = []
 
-  class Word {
+  class Sentence {
     constructor(x, y, dx, dy, text) {
       this.x = x
       this.y = y
@@ -55,21 +55,20 @@
 
   function setup () {
     nn.get('body').css('margin', 0)
-    nn.get('body').css('background-color', 'white')
 
     canvas = nn.create('canvas')
       .position(0, 0)
       .resize(nn.width, nn.height)
       .addTo('body')
 
-    const vocab = ['OFF WITH THEIR HEADS', 'I’m late, I’m late I’m late!', 'I shall never get out', 'Who are you?']
+    const quote = ['OFF WITH THEIR HEADS', 'I’m late, I’m late I’m late!', 'I shall never get out', 'Who are you?']
 
     for (let i = 0; i < 20; i++) {
-      const word = nn.random(vocab)
+      const word = nn.random(quote)
       canvas.ctx.font = '40px serif'
       const textWidth = canvas.ctx.measureText(word).width
 
-      words.push(new Word(
+      sentences.push(new Sentence(
         nn.random(0, nn.width - textWidth),
         nn.random(0 + 20, nn.height - document.getElementById('nav').offsetHeight),
         nn.random(-2, 2),
@@ -82,7 +81,7 @@
   function draw () {
     setTimeout(draw, 1000 / 60)
 
-    words.forEach(w => {
+    sentences.forEach(w => {
       w.update()
       w.draw()
     })
