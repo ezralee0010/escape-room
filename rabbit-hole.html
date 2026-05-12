@@ -28,18 +28,19 @@
     if (ran === '🚪') {
       symbol = nn.create('a')
         .content('🚪')
+        .css('font-size', '90')
         .set('href', 'flower.html')
 
     } else {
       symbol = nn.create('a-box')
         .content(ran)
         .css('color', c)
+        .css('font-size', t)
     }
 
     symbol
       .css('word-wrap', 'anywhere')
       .css('line-height', '40px')
-      .css('font-size', t)
       .addTo('body')
 
     const y = nn.get('body').scrollHeight
