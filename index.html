@@ -43,7 +43,7 @@
   function draw () {
     requestAnimationFrame(draw)
 
-    canvas.ctx.clearRect(0, 0, nn.width, nn.height)
+    canvas.clearRect(0, 0, nn.width, nn.height)
 
     const t = performance.now() * 0.001
     const cx = canvas.width / 2
@@ -55,20 +55,13 @@
 
     const opacity = (Math.sin(t * 2) + 1) / 2
 
-    canvas.ctx.save()
-    canvas.ctx.globalAlpha = opacity
-
-    canvas.ctx.drawImage(cat, x + 70, y - 90, 90, 90)
-
-    canvas.ctx.restore()
+    canvas.globalAlpha = opacity
+    canvas.drawImage(cat, x + 70, y - 90, 90, 90)
   }
 
   nn.on('load', setup)
   nn.on('load', draw)
-
-  nn.on('resize', () => {
-    canvas.resize(nn.width, nn.height)
-  })
+  nn.on('resize', () => { canvas.resize(nn.width, nn.height) })
 </script>
 
 <div id="nav">

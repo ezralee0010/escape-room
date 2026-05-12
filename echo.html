@@ -89,9 +89,7 @@
 
   nn.on('load', setup)
   nn.on('load', draw)
-  nn.on('resize', () => {
-    canvas.resize(nn.width, nn.height)
-  })
+  nn.on('resize', () => { canvas.resize(nn.width, nn.height) })
 </script>
 
 <div id="nav">
