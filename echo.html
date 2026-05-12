@@ -40,7 +40,7 @@
         this.dx = -this.dx
       }
 
-      if (this.y > nn.height || this.y < 0) {
+      if (this.y > nn.height - document.getElementById('nav').offsetHeight || this.y - 20 < 0) {
         this.dy = -this.dy
       }
     }
@@ -71,7 +71,7 @@
 
       words.push(new Word(
         nn.random(0, nn.width - textWidth),
-        nn.random(0, nn.height),
+        nn.random(0 + 20, nn.height - document.getElementById('nav').offsetHeight),
         nn.random(-2, 2),
         nn.random(-2, 2),
         word
